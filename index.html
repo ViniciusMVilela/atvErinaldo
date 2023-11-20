@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Controle de Estoque</title>
+    <link rel="Website Icon" href="img/loja-de-vegetais.png" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container-header">
+        <h1>Controle de Estoque</h1>
+        <img src="img/loja-de-vegetais.png" id="h1-img" />
+      </div>
+    </header>
+    <main>
+      <section class="container">
+        <h2 id="titulo-form">
+          Adicionar Produtos <img src="img/adicionar-produto.png" alt="" />
+        </h2>
+        <ul id="mensagem-erro"></ul>
+        <form id="form-adiciona">
+          <div class="form-container">
+            <div class="div-nome">
+              <label for="nome">Nome:</label>
+              <input
+                id="nome"
+                name="nome"
+                type="text"
+                placeholder="Digite o nome do seu produto"
+                class="campo"
+              />
+            </div>
+            <div class="grupo">
+              <label for="peso">Preço:</label>
+              <input
+                id="preco"
+                name="preco"
+                type="text"
+                placeholder="Digite o preço do produto"
+                class="campo campo-medio"
+              />
+            </div>
+          </div>
+          <button id="adicionar-produto" class="button btn-adicionar">
+            Adicionar
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <section class="container">
+      <h2>Estoque <img src="img/estoque.png" alt="" /></h2>
+      <label for=""
+        >Consulta<img src="img/lupa.png" alt="" id="label-filtro"
+      /></label>
+      <input
+        type="text"
+        name="filtro"
+        id="filtrar-tabela"
+        placeholder="Digite o nome do produto"
+      />
+      <p>Ordem decrescente</p>
+      <label class="switch">
+        <input type="checkbox" id="toggleButton" />
+        <span class="slider"></span>
+      </label>
+      <table id="ordenada">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-produtos"></tbody>
+      </table>
+
+      <span id="erro-ajax" class="invisivel">Erro ao buscar os produtos</span>
+    </section>
+
+    <!-- importação JS -->
+    <script src="js/form.js"></script>
+    <script src="js/remover.js"></script>
+    <script src="js/filtro.js"></script>
+    <script src="js/ordenar.js"></script>
+    <script src="js/toggle.js"></script>
+  </body>
+</html>
