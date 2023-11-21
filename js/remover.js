@@ -1,12 +1,20 @@
-let pacientesDaTabela = document.querySelectorAll(".produto");
-let tabelaPacientes = document.querySelector("table");
+document.getElementById("ordenada").addEventListener("click", function (event) {
+  const botaoRemover = event.target.closest(".td-btn");
+  const nomeProduto = document.querySelector(".info-nome").textContent;
 
-tabelaPacientes.addEventListener("dblclick", function (event) {
-  const confirmacao = confirm("Tem certeza que deseja remover este produto?");
-  if (confirmacao) {
-    event.target.parentNode.classList.add("fadeOut");
-    setTimeout(function () {
-      event.target.parentNode.remove();
-    }, 200);
+  if (botaoRemover) {
+    const confirmacao = confirm(
+      `Tem certeza que deseja remover o produto ${nomeProduto}?`
+    );
+
+    if (confirmacao) {
+      console.log("Botão de remover clicado! Produto será removido.");
+      const linhaProduto = botaoRemover.closest(".produto");
+      if (linhaProduto) {
+        linhaProduto.remove(); // Remove a linha da tabela
+      }
+    } else {
+      console.log("Remoção cancelada pelo usuário.");
+    }
   }
 });

@@ -36,15 +36,7 @@ function obtendoDadosDoFormulario(form) {
   let objetoProduto = {
     nome: form.nome.value,
     preco: form.preco.value,
-    // altura: form.altura.value,
-    // gordura: form.gordura.value,
-    // imc: calculoDoImc(form.peso.value, form.altura.value),
   };
-
-  //  let nome = form.nome.value;
-  //  let peso = form.peso.value;
-  //  let gordura = form.gordura.value;
-  //  let altura = form.altura.value;
 
   return objetoProduto;
 }
@@ -52,25 +44,11 @@ function obtendoDadosDoFormulario(form) {
 function criaNovosElementos(produto) {
   //* criando novos elementos
   let novoProduto = document.createElement("tr");
-  //let btnRemover = document.querySelector(".btnRemover");
   novoProduto.classList.add("produto");
 
-  //! colocamos isso direto no append child
-  // let nomeNovoPacinte = montaTd(paciente.nome, "info-nome");
-  // let pesoNovoPacinte = montaTd(paciente.peso, "info-peso");
-  // let alturaNovoPacinte = montaTd(paciente.altura, "info-altura");
-  // let gorduraNovoPacinte = montaTd(paciente.gordura, "info-gordura");
-  // let imcNovoPacinte = montaTd(paciente.imc, "info-imc");
-
-  //* adicioanando novos filhos td ao tr
   novoProduto.appendChild(montaTd(produto.nome, "info-nome"));
   novoProduto.appendChild(montaTd(produto.preco, "info-preco"));
   novoProduto.appendChild(montaExcluir());
-  //btnRemover.classList.remove("invisivel");
-  // novoProduto.appendChild(montaTd(paciente.altura, "info-altura"));
-  // novoProduto.appendChild(montaTd(paciente.gordura, "info-gordura"));
-  // novoProduto.appendChild(montaTd(paciente.imc, "info-imc"));
-  // console.log(novoProduto);
 
   return novoProduto;
 }
@@ -87,12 +65,15 @@ function montaExcluir() {
   let td = document.createElement("td");
   let btn = document.createElement("button");
   let img = document.createElement("img");
+
   img.classList.add("img-remover");
   img.src = "img/lixo.png";
+
   btn.appendChild(img);
   btn.classList.add("btn-remover");
   td.appendChild(btn);
-
+  td.classList.add('td-btn');
+  
   return td;
 }
 
